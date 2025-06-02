@@ -53,7 +53,7 @@ export function EventCard({ event, onDelete }: EventCardProps) {
       <CardHeader>
         <div className="flex items-start justify-between">
           <CardTitle className="line-clamp-2">{event.title}</CardTitle>
-          <Badge variant={isPastEvent ? "destructive" : isFullyBooked ? "destructive" : "default"}>
+          <Badge variant={isPastEvent ? "destructive" : isFullyBooked ? "destructive" : "success"}>
             {isPastEvent ? "Past" : isFullyBooked ? "Full" : "Available"}
           </Badge>
         </div>
