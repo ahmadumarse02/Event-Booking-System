@@ -50,19 +50,19 @@ export function EventForm({ event, mode }: EventFormProps) {
     resolver: zodResolver(eventSchema),
     defaultValues: event
       ? {
-          title: event.title,
-          description: event.description || "",
-          date: format(new Date(event.date), "yyyy-MM-dd"),
-          time: event.time,
-          location: event.location,
-          capacity: event.capacity,
-          price: event.price,
-          category: event.category,
-        }
+        title: event.title,
+        description: event.description || "",
+        date: format(new Date(event.date), "yyyy-MM-dd"),
+        time: event.time,
+        location: event.location,
+        capacity: event.capacity,
+        price: event.price,
+        category: event.category,
+      }
       : {
-          capacity: 0,
-          price: 0,
-        },
+        capacity: 0,
+        price: 0,
+      },
   })
 
   const category = watch("category")
@@ -124,7 +124,26 @@ export function EventForm({ event, mode }: EventFormProps) {
 
             <div className="space-y-2">
               <Label htmlFor="time">Time</Label>
-              <Input id="time" type="time" {...register("time")} />
+              <Select
+                value={watch("time")}
+                onValueChange={(value) => setValue("time", value)}
+              >
+                <SelectTrigger>
+                  <SelectValue placeholder="Select time" />
+                </SelectTrigger>
+                <SelectContent>
+                  {Array.from({ length: 24 }).map((_, i) => {
+                    const hour = i % 12 || 12;
+                    const ampm = i < 12 ? "AM" : "PM";
+                    const timeString = `${hour}:00 ${ampm}`;
+                    return (
+                      <SelectItem key={timeString} value={timeString}>
+                        {timeString}
+                      </SelectItem>
+                    );
+                  })}
+                </SelectContent>
+              </Select>
               {errors.time && <p className="text-sm text-destructive">{errors.time.message}</p>}
             </div>
           </div>

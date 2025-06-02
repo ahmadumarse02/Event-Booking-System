@@ -85,7 +85,7 @@ export function EventCard({ event, onDelete }: EventCardProps) {
 
         <div className="flex items-center space-x-2 text-sm">
           <DollarSign className="h-4 w-4 text-muted-foreground" />
-          <span>${event.price}</span>
+          <span>{event.price}</span>
         </div>
 
         <Badge variant="outline">{event.category}</Badge>
@@ -104,10 +104,10 @@ export function EventCard({ event, onDelete }: EventCardProps) {
         </div>
 
         <div className="flex w-full space-x-2">
-          <Button asChild variant="ghost" size="sm" className="flex-1">
+          <Button asChild variant="outline" size="sm" className="flex-1">
             <Link href={`/events/${event.id}/edit`}>Edit</Link>
           </Button>
-          <Button variant="ghost" size="sm" className="flex-1" onClick={handleDelete} disabled={isDeleting}>
+          <Button variant="destructive" size="sm" className="flex-1" onClick={handleDelete} disabled={isDeleting}>
             {isDeleting ? <LoadingSpinner size="sm" /> : "Delete"}
           </Button>
         </div>
