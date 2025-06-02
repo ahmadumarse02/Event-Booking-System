@@ -21,9 +21,11 @@ export function Navigation() {
       <div className="container mx-auto px-4">
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
-          <div className="flex items-center space-x-2">
-            <Users className="h-6 w-6" />
-            <span className="font-bold text-xl">EventBooker</span>
+          <div>
+            <Link href="/" className="flex items-center space-x-2">
+              <Users className="h-6 w-6" />
+              <span className="font-bold text-xl">EventBooker</span>
+              </Link>
           </div>
 
           {/* Desktop Navigation */}

@@ -79,7 +79,7 @@ export default function EventDetailsPage() {
           <div>
             <h1 className="text-3xl font-bold mb-2">{event.title}</h1>
             <div className="flex items-center space-x-4">
-              <Badge variant={isPastEvent ? "secondary" : availableSpots <= 0 ? "destructive" : "default"}>
+              <Badge variant={isPastEvent ? "destructive" : availableSpots <= 0 ? "destructive" : "default"}>
                 {isPastEvent ? "Past Event" : availableSpots <= 0 ? "Fully Booked" : "Available"}
               </Badge>
               <Badge variant="outline">{event.category}</Badge>

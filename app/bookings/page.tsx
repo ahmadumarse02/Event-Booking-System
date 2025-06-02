@@ -92,7 +92,7 @@ export default function BookingsPage() {
                     <div className="space-y-2">
                       <div className="flex items-center space-x-2">
                         <h3 className="font-semibold text-lg">{booking.event?.title || "Unknown Event"}</h3>
-                        <Badge variant={isPastEvent ? "secondary" : "default"}>
+                        <Badge variant={isPastEvent ? "destructive" : "default"}>
                           {isPastEvent ? "Past" : "Upcoming"}
                         </Badge>
                       </div>
