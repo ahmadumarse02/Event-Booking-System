@@ -6,9 +6,11 @@ export async function GET() {
   try {
     const events = await prisma.event.findMany({
       include: {
-        _count: {
-          select: { bookings: true },
-        },
+        bookings: {
+          select: {
+            tickets: true
+          }
+        }
       },
       orderBy: { date: "asc" },
     })

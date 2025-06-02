@@ -21,8 +21,8 @@ export function EventCard({ event, onDelete }: EventCardProps) {
   const [isDeleting, setIsDeleting] = useState(false)
   const { toast } = useToast()
 
-  const bookedTickets = event._count?.bookings || 0
-  const availableSpots = event.capacity - bookedTickets
+  const totalBookedTickets = event.bookings?.reduce((sum, booking) => sum + booking.tickets, 0) || 0
+  const availableSpots = event.capacity - totalBookedTickets
   const isFullyBooked = availableSpots <= 0
   const isPastEvent = new Date(event.date) < new Date()
 
