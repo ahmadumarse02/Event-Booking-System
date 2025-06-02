@@ -9,7 +9,7 @@ import { Toaster } from "@/components/ui/toaster"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "Event Booking System",
+  title: "Event booking system",
   description: "A complete event booking platform",
 }
 
